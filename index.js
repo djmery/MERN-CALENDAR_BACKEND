@@ -29,6 +29,11 @@ app.use(express.json());
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/events', require('./routes/events'));
 
+app.get('*', (req, res) => {
+    //ponemos el path donde se encuentra nuestra carpeta publica, dirname sería el path inicial
+    res.sendFile(__dirname + '/public/index.html')
+})
+
 //TODO: CRUD: Eventos
 
 
